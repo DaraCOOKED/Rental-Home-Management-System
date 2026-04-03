@@ -13,7 +13,11 @@ return new class extends Migration
     {
         Schema::create('lease_agreements', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->dateTime('date_start');
+            $table->dateTime('date_end');
+            $table->integer('unit_id');
+            $table->integer('tenat_id');
+            $table->string('status');
         });
     }
 
