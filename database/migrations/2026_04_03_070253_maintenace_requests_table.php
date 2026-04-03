@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Symfony\Component\Mime\Email;
 
 return new class extends Migration
 {
@@ -11,14 +12,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('properties', function (Blueprint $table) {
+        Schema::create('maintence_requests', function (Blueprint $table)
+    {
             $table->id();
+            $table->integer('unit_id');
+            $table->integer('tenat_id');
+            $table->string('Email');
             $table->string('title');
-            $table->string('price');
-            $table->string('location');
-            $table->string('status');
+            $table->string('status_request');
             $table->string('description');
-        });
+
+    });
+
     }
 
     /**
@@ -26,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('properties');
+        //
     }
 };
