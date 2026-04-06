@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    login page
+    <form action="{{ route('login') }}" method="POST">
+    @csrf
+    <input type="email" name="email" value="{{ old('email') }}">
+    <input type="password" name="password">
+    <button>Login</button>
+</form>
 </body>
 </html>
