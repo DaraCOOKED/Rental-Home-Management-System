@@ -21,7 +21,7 @@ Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/admin/properties', function () {
+Route::get('    ', function () {
     return view('admin.properties.index');
 });
 
