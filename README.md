@@ -64,3 +64,29 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+resources/
+└── views/
+    ├── layouts/
+    │   └── app.blade.php          # Main layout (header, footer, nav)
+    │
+    ├── components/                # Reusable UI pieces (optional but recommended)
+    │   ├── button.blade.php
+    │   ├── alert.blade.php
+    │   └── input.blade.php
+    │
+    ├── posts/                     # One folder per resource
+    │   ├── index.blade.php
+    │   ├── create.blade.php
+    │   ├── show.blade.php
+    │   └── edit.blade.php
+    │
+    ├── users/
+    │   ├── index.blade.php
+    │   ├── create.blade.php
+    │   ├── show.blade.php
+    │   └── edit.blade.php
+    │
+    └── partials/                  # Small reusable snippets
+        ├── navbar.blade.php
+        └── footer.blade.php
