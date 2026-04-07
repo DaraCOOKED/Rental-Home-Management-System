@@ -10,26 +10,26 @@ class DashboardController extends Controller
     {
         $menuItems = [
             [
-                'label' => 'Dashboard',
+                'label' => 'dashboard',
                 'icon' => 'bi bi-house',
-                'route' => 'dashboard',
+                'route' => 'admin.dashboard',
             ],
-            [
-                'label' => 'Users',
-                'icon' => 'bi bi-people',
-                'route' => 'users.index',
-                'children' => [
-                    ['label' => 'All Users', 'route' => 'users.index'],
-                    ['label' => 'Add User', 'route' => 'users.create'],
-                ],
-            ],
-            [
-                'label' => 'Reports',
-                'icon' => 'bi bi-graph-up',
-                'route' => 'reports.index',
-            ],
+            // [
+            //     'label' => 'Users',
+            //     'icon' => 'bi bi-people',
+            //     'route' => 'users.index',
+            //     'children' => [
+            //         ['label' => 'All Users', 'route' => 'users.index'],
+            //         ['label' => 'Add User', 'route' => 'users.create'],
+            //     ],
+            // ],
+            // [
+            //     'label' => 'Reports',
+            //     'icon' => 'bi bi-graph-up',
+            //     'route' => 'reports.index',
+            // ],
         ];
 
-        return view('dashboard', compact('menuItems'));
+        return view('admin.dashboard', compact('menuItems'));
     }
 }
