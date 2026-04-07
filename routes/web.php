@@ -1,10 +1,16 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
-// --- AUTHENTICATION ---
-Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
+// Login/Logout routes
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
@@ -13,13 +19,16 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 // --- ADMIN ROUTES ---
 Route::get('/admin/dashboard', fn() => view('admin.dashboard'));
 
-// Admin Properties
-Route::get('/admin/properties', fn() => view('admin.properties.index'));
-Route::get('/admin/properties/create', fn() => view('admin.properties.create'));
 
-// Admin Tenants
-Route::get('/admin/tenants', fn() => view('admin.tenants.index'));
-Route::get('/admin/tenants/create', fn() => view('admin.tenants.create'));
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+    // Dummy routes for Users and Reports (replace with real controllers later)
+    Route::get('/users', function() { return 'Users list'; })->name('users.index');
+    Route::get('/users/create', function() { return 'Add user form'; })->name('users.create');
+    Route::get('/reports', function() { return 'Reports page'; })->name('reports.index');
+});
+
 
 // Admin Leases
 Route::get('/admin/leases', fn() => view('admin.leases.index'));
@@ -31,6 +40,7 @@ Route::get('/admin/payments/create', fn() => view('admin.payments.create'));
 
 // Admin Maintenance
 Route::get('/admin/maintenance', fn() => view('admin.maintenance.index'));
+
 
 // --- TENANT ROUTES ---
 Route::get('/tenant/dashboard', fn() => view('tenant.dashboard'));
