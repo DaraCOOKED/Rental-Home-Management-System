@@ -12,7 +12,7 @@
     <div class="bg-white rounded-lg shadow w-100 p-3 flex flex-col">
 
         <div class=" w-full h-20 justify-center flex text-center item-center ">
-            <x-heroicon-o-user class="w-14 text-blue-700 h-14 m-auto" />
+            <x-heroicon-o-home class="w-14 text-blue-700 h-14 m-auto" />
 
         </div>
 
@@ -29,7 +29,7 @@
 
                <div class="flex gap-2 justify-center item-center m-auto center rounded-xl w-fit">
                     <a href="/login"
-                    class=" rounded-lg w-full py-4 text-sm px-15 border font-medium  {{ request()->is('login') ? 'bg-blue-50 text-blue-500 shadow-sm border border-blue-400 border-3' : 'text-gray-500 hover:text-gray-700' }}">
+                    class=" rounded-lg w-full py-5 text-sm px-15 border font-medium  {{ request()->is('login') ? 'bg-blue-50 text-blue-500 shadow-sm border border-blue-400 border-3' : 'text-gray-500 hover:text-gray-700' }}">
                         Admin
                     </a>
                     <a href="/tenant/login"
@@ -46,7 +46,7 @@
             <input 
             type="email" 
             name="email"
-            value="admin@pse.ngo"
+            placeholder="admin@pse.ngo"
                 class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
        </div>
 
