@@ -1,21 +1,28 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('/', fn() => redirect()->route('login'));
-
-// Auth routes
-Route::middleware('guest')->group(function () {
-    Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/login', [AuthController::class, 'login']);
-    Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-    Route::post('/register', [AuthController::class, 'register']);
-    Route::get('/tenant/login', fn() => view('auth.tanent-login'));
+Route::get('/', function () {
+    return redirect()->route('login');
 });
 
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+// Login/Logout routes
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+    // Dummy routes for Users and Reports (replace with real controllers later)
+    Route::get('/users', function() { return 'Users list'; })->name('users.index');
+    Route::get('/users/create', function() { return 'Add user form'; })->name('users.create');
+    Route::get('/reports', function() { return 'Reports page'; })->name('reports.index');
+});
+
 
 
 Route::get('/admin/dashboard', function () {
