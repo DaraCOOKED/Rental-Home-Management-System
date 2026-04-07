@@ -15,19 +15,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/tenant/login', fn() => view('auth.tanent-login'));
 
 // --- ADMIN ROUTES ---
 Route::get('/admin/dashboard', fn() => view('admin.dashboard'));
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-
-    // Dummy routes for Users and Reports (replace with real controllers later)
-    Route::get('/users', function() { return 'Users list'; })->name('users.index');
-    Route::get('/users/create', function() { return 'Add user form'; })->name('users.create');
-    Route::get('/reports', function() { return 'Reports page'; })->name('reports.index');
-});
 
 
 // Admin Leases
