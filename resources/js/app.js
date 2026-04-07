@@ -1,7 +1,7 @@
 import './bootstrap';
-import { createApp } from 'vue'
-import PropertyCard from './components/PropertyCard.vue'
+import { createApp } from 'vue';
+import UnitCard from './components/UnitCard.vue';
 
-const app = createApp({})
-app.component('property-card', PropertyCard)
-app.mount('#app')
+const app = createApp({});
+app.component('unit-card', UnitCard);
+app.mount('#app');

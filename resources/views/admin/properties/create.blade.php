@@ -1,35 +1,47 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Properties — Jinlong Rental</title>
+    <title>Properties</title>
     <script src="https://cdn.tailwindcss.com"></script>
-  
 </head>
-<body class="bg-gray-50 min-h-screen">
-    <div class="p-8 max-w-7xl mx-auto">
-        
-        <header class="flex justify-between items-center mb-8">
-            <div>
-                <h1 class="text-2xl font-bold text-gray-900">Properties</h1>
-                <p class="text-sm text-gray-500">Manage your rental listings</p>
-            </div>
+<body class="bg-gray-100">
 
-            <button class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-semibold shadow-sm transition-all active:scale-95">
-                + Add More
-            </button>
-        </header>
+<div class="p-8 max-w-7xl mx-auto">
 
-        <div class="bg-white h-64 rounded-xl shadow-sm border border-gray-200 flex items-center justify-center text-gray-400">
-                <property-card 
-                title="Jinlong Tower Unit 12" 
-                price="$450/month" 
-                location="Incheon, South Korea"
-                :total="1"
-            ></property-card>
-        </div>
+    <h1 class="text-3xl font-bold mb-6">Properties</h1>
+
+    <!-- GRID -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- CALL COMPONENT -->
+        <x-property-card 
+            title="Premium Apartment"
+            price="$29/mo"
+            location="Phnom Penh"
+            description="2-bedroom fully furnished"
+            amount="2 units available"
+            status="Available"
+            image="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+        />
+
+        <x-property-card 
+            title="Studio Room"
+            price="$19/mo"
+            location="Russian Market"
+            description="Modern compact room"
+            amount="5 units available"
+            status="Occupied"
+            image="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
+        />
 
     </div>
+
+</div>
+
 </body>
 </html>
+
+
+
