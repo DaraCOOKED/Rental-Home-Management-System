@@ -1,11 +1,6 @@
+<div class="w- bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
 
-<div class="w-80 bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition">
-
-    <!-- Image -->
-    <div class="h-44 overflow-hidden">
-        <img src="{{ $image }}" class="w-full h-full object-cover" />
-    </div>
-
+   
     <div class="p-4 space-y-3">
 
         <!-- Status -->
