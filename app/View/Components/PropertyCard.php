@@ -12,7 +12,8 @@ class PropertyCard extends Component
     public $description;
     public $amount;
     public $status;
-    public $image;
+ 
+
     public function __construct(
         $title,
         $price,
@@ -20,7 +21,6 @@ class PropertyCard extends Component
         $description = '',
         $amount = '',
         $status = 'Available',
-        $image = 'https://www.houseplans.pro/assets/plans/788/6-plex-town-house-plan-narrow-16-ft-wide-units-rear-garage-front-render-S-747.jpg'
     ) {
         $this->title = $title;
         $this->price = $price;
@@ -28,7 +28,7 @@ class PropertyCard extends Component
         $this->description = $description;
         $this->amount = $amount;
         $this->status = $status;
-        $this->image = $image;
+       
     }
 
     public function render()
