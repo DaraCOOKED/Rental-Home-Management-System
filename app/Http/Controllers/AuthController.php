@@ -12,6 +12,10 @@ class AuthController extends Controller
     {
         return view('auth.login');
     }
+    public function showTenantLoginForm()
+    {
+        return view('auth.tanent-login');
+    }
 
     // Handle login post
     public function login(Request $request)

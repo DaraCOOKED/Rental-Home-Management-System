@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -9,10 +10,9 @@ use Illuminate\Support\Facades\Route;
         
         // Login/Logout routes
         Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-        
         Route::post('/login', [AuthController::class, 'login']);
-        Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
-        Route::post('/register', [AuthController::class, 'register']);
+        Route::get('/tenant/login', [AuthController::class, 'showTenantLoginForm'])->name('tenant.login');
+        Route::post('/tenant/login', [AuthController::class, 'tenantLogin']);
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
         
         // --- ADMIN ROUTES ---
@@ -54,3 +54,6 @@ use Illuminate\Support\Facades\Route;
         // Tenant Maintenance
         Route::get('/tenant/maintenance', fn() => view('tenant.maintenance.index'));
         Route::get('/tenant/maintenance/create', fn() => view('tenant.maintenance.create'));
+
+        Route::get('/rent', [RentController::class, 'rentproperty']);
+
