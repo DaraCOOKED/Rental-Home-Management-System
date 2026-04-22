@@ -1,0 +1,1 @@
+<div style="height: 1px;" class="bg-gray-200 w-full"></div>

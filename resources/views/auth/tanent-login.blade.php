@@ -56,7 +56,7 @@
             <input 
             type="email" 
             name="email"
-            value="admin@pse.ngo"
+            value="tenant@pse.ngo"
                 class="w-full border border-gray-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
        </div>
 
