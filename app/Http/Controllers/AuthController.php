@@ -17,6 +17,16 @@ class AuthController extends Controller
         return view('auth.tanent-login');
     }
 
+    public function index()
+    {
+        return view('auth.form');
+    }
+    public function store(Request $request)
+    {
+        $email = $request->input('email');
+        dd($email);
+    }
+
     // Handle login post
     public function login(Request $request)
     {

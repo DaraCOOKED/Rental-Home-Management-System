@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PropertyController;
 
 
         Route::get('/', function () {
@@ -21,7 +22,7 @@ use Illuminate\Support\Facades\Route;
         
         Route::get('/admin/properties', fn() => view('admin.properties.index'));
         Route::get('/admin/properties/create', fn() => view('admin.properties.create'));
-        
+
         
         
         Route::middleware('auth')->group(function () {
@@ -42,8 +43,12 @@ use Illuminate\Support\Facades\Route;
         Route::get('/admin/payments', fn() => view('admin.payments.index'));
         Route::get('/admin/payments/create', fn() => view('admin.payments.create'));
         
+        Route::get('/admin/tenants', fn() => view('admin.tenants.index'));
+        Route::get('/admin/tenants/create', fn() => view('admin.tenants.create'));
+        
         // Admin Maintenance
         Route::get('/admin/maintenance', fn() => view('admin.maintenance.index'));
+         Route::get('/admin/maintenance/create', fn() => view('admin.maintenance.create'));
         
         
         // --- TENANT ROUTES ---
@@ -57,3 +62,11 @@ use Illuminate\Support\Facades\Route;
 
         Route::get('/rent', [RentController::class, 'rentproperty']);
 
+
+
+
+
+        Route::get('/properties', [PropertyController::class, 'index']);
+        Route::post('/properties', [PropertyController::class, 'store'])->name('proerties');
+        
+        
