@@ -9,11 +9,11 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
-<div class="flex">
+<div class="flex min-h-screen">
     @include('partials.sidebar')
     
     <main class="ml-[250px] flex-1 min-h-screen bg-gray-50">
         @yield('content')
     </main>
+  
 </div>
-$
