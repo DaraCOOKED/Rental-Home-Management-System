@@ -13,7 +13,7 @@
             <label >Email</label>
             <input type="email" name="email" value="email@gmail.com">
        </div>
-@foreach
+
         <div class="">
 
             <label for="">password</label>
