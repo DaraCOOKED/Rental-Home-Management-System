@@ -1,5 +1,5 @@
 
-<div class="">
+<div>
     <div class="sidebar justify-center shadow-sm border border-gray-100 text-white p-3" style="width: 250px; height: auto; position: fixed; top: 0; left: 0;">
     <div class="flex gap-2 just-center m-auto flex item-center mb-20 center"> 
         <div class="justify-center item-center text-center flex bg-blue-600 h-auto w-auto rounded-xl">
