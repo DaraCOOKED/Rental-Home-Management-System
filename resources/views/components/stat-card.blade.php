@@ -1,6 +1,6 @@
 @props(['iconBg' => 'bg-blue-500', 'label', 'value', 'change' => null])
 
-<div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+<div class="bg-white rounded-2xl border border-gray-100 p-6">
     <div class="flex items-start justify-between mb-4">
         <div class="w-12 h-12 {{ $iconBg }} rounded-xl flex items-center justify-center">
             {{ $icon }}
