@@ -11,10 +11,8 @@
     <div class="flex justify-between items-center mb-6">
         
         <div>
-            <h1 class="text-2xl font-semibold text-gray-800">Lease Agreements
-</h1>
-            <p class="text-gray-500 text-sm">
-Manage lease agreements and renewals
+            <h1 class="text-2xl font-semibold text-gray-800">Lease Agreements</h1>
+            <p class="text-gray-500 text-sm">Manage lease agreements and renewals
 
             </p>
         </div>
