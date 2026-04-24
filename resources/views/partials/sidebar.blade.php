@@ -1,83 +1,92 @@
-
 <div>
-    <div class="sidebar justify-center shadow-sm border border-gray-100 text-white p-3" style="width: 250px; height: auto; position: fixed; top: 0; left: 0;">
-    <div class="flex gap-2 just-center m-auto flex item-center mb-20 center"> 
-        <div class="justify-center item-center text-center flex bg-blue-600 h-auto w-auto rounded-xl">
-             <x-heroicon-o-home class="w-11 text-white text-xl" />
-        </div>
-        <div class=" w-10 flex-shrink-0 block h-10">
-            <h4 class="text-base font-bold text-black text-xl flex-shrink-0">PropManager</h4>
-            <div class="text-sm text-gray-300 text-nowrap flex ">Rental Management</div>
-        </div>
+    <div class="sidebar shadow-sm border border-gray-100 p-3 flex flex-col" style="width: 250px; height: 100vh; position: fixed; top: 0; left: 0;">
+        
+        {{-- Logo --}}
+        <div class="flex items-center gap-3 mb-3">
+    <div class="flex items-center justify-center bg-blue-600 w-12 h-12 mb-3 rounded-xl shrink-0">
+        <x-heroicon-o-building-office-2 class="w-7 h-7 text-white" />
     </div>
-<!-- Line -->
-    <div class="border-b border-gray-200 pb-4">
+    <div>
+        <h4 class="text-xl font-bold text-gray-900 leading-tight">PropManager</h4>
+        <p class="text-sm text-gray-400">Rental Management</p>
     </div>
-
- <!-- Nav -->
-  <nav class="flex-1 px-3 py-4 space-y-1">
-
-    <a href="/admin/dashboard"
-    class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
-    {{ request()->is('admin/dashboard') ?
-    'bg-blue-200 text-blue-600' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
-        <x-heroicon-o-squares-2x2 class="w-5 h-5 shrink-0" /> Dashboard
-
-    <a href="/admin/properties/create"
- class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
- {{ request()->is('admin/dashboard') ?
-   ' text-blue-600' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
-    <x-heroicon-o-squares-2x2 class="w-5 h-5 shrink-0" /> Properties
-</a>
-<a href="/admin/tenants/create"
- class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
- {{ request()->is('admin/dashboard') ?
-   'text-blue-600' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
-    <x-heroicon-o-squares-2x2 class="w-5 h-5 shrink-0" /> Tenants
-</a>
-<a href="/admin/payments/create"
- class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
- {{ request()->is('admin/dashboard') ?
-   ' text-blue-600' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
-    <x-heroicon-o-squares-2x2 class="w-5 h-5 shrink-0" /> Payments
-
-
-</a>
-
-
-
-<a href="/admin/maintenance/create  "
- class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
- {{ request()->is('admin/dashboard') ?
-   ' text-blue-600' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900' }}">
-    <x-heroicon-o-squares-2x2 class="w-5 h-5 shrink-0" /> Maintenace
-</a>
-
-
-
-</a>
-
-</nav>
-
-
-
-
-
-<div class="border-b mt-67 border-gray-200 pb-1">
-    </div>
-
-<!-- profile -->
-<div class="flex items-center rounded-xl">
-            <div class="flex items-center absolute left-7 justify-center bg-gray-600 rounded-full w-10 h-10 shrink-0">
-                <x-heroicon-o-user class="w-5 h-5 text-white" />
-            </div>
-            <div class="justify-center py-3 mt-2 block m-auto overflow-hidden">
-                <p class="text-sm font-semibold text-gray-800">{{ auth()->user()->name ?? 'Admin User' }}</p>
-                <p class="text-xs text-gray-500 mt-12">{{ auth()->user()->email ?? 'admin@pse.ngo' }}</p>
-            </div>
-        </div>
 </div>
-    
+
+        {{-- Line --}}
+        <div class="border-b border-gray-200 mb-2"></div>
+
+        {{-- Nav --}}
+        <nav class="flex-1 px-2 py-2 space-y-1">
+
+            <a href="/admin/dashboard"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
+            {{ request()->is('admin/dashboard') ?
+            'bg-blue-100 text-blue-600' : '!text-gray-900 hover:bg-blue-50 hover:!text-blue-600' }}">
+                <x-heroicon-o-building-office-2 class="w-5 h-5 shrink-0" /> Dashboard
+            </a>
+
+            <a href="/admin/properties/create"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
+            {{ request()->is('admin/properties*') ?
+            'bg-blue-100 text-blue-600' : '!text-gray-900 hover:bg-blue-50 hover:!text-blue-600' }}">
+                <x-heroicon-o-home-modern class="w-5 h-5 shrink-0" /> Properties
+            </a>
+
+            <a href="/admin/tenants/create"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
+            {{ request()->is('admin/tenants*') ?
+            'bg-blue-100 text-blue-600' : '!text-gray-900 hover:bg-blue-50 hover:!text-blue-600' }}">
+                <x-heroicon-o-user-group class="w-5 h-5 shrink-0" /> Tenants
+            </a>
+
+            
+            <a href="/admin/payments/create"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
+            {{ request()->is('admin/payments*') ?
+            'bg-blue-100 text-blue-600' : '!text-gray-900 hover:bg-blue-50 hover:!text-blue-600' }}">
+                <x-heroicon-o-currency-dollar class="w-5 h-5 shrink-0" /> Payments
+            </a>
+
+            <a href="/admin/leases/create"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
+            {{ request()->is('admin/leases*') ?
+            'bg-blue-100 text-blue-600' : '!text-gray-900 hover:bg-blue-50 hover:!text-blue-600' }}">
+                <x-heroicon-o-document-text class="w-5 h-5 shrink-0" /> Leases
+            </a>
 
 
+            <a href="/admin/maintenance/create"
+            class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
+            {{ request()->is('admin/maintenance*') ?
+            'bg-blue-100 text-blue-600' : '!text-gray-900 hover:bg-blue-50 hover:!text-blue-600' }}">
+                <x-heroicon-o-wrench-screwdriver class="w-5 h-5 shrink-0" /> Maintenace
+            </a>
+
+        </nav>
+
+        {{-- Line --}}
+        <div class="border-b border-gray-200 mb-2"></div>
+
+        {{-- Profile + Logout --}}
+        <div class="px-2 py-2">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="flex items-center justify-center bg-gray-600 rounded-full w-10 h-10 shrink-0">
+                    <x-heroicon-o-user class="w-5 h-5 text-white" />
+                </div>
+                <div class="overflow-hidden">
+                    <p class="text-sm font-semibold text-gray-800 truncate">{{ auth()->user()->name ?? 'Admin User' }}</p>
+                    <p class="text-xs text-gray-400 truncate">{{ auth()->user()->email ?? 'admin@pse.ngo' }}</p>
+                </div>
+            </div>
+
+            {{-- Logout --}}
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-red-500 hover:bg-red-50 transition">
+                    <x-heroicon-o-arrow-right-on-rectangle class="w-5 h-5 shrink-0" /> Logout
+                </button>
+            </form>
+        </div>
+
+    </div>
 </div>
