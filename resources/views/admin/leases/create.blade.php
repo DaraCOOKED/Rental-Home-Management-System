@@ -1,18 +1,21 @@
 @extends('layouts.app')
 
-@section('title', 'Dashboard')
-
 @section('content')
 
-<div class="bg-white min-h-screen p-6">
+
+
+
+<div class=" min-h-screen p-6">
 
     <!-- Header -->
     <div class="flex justify-between items-center mb-6">
         
         <div>
-            <h1 class="text-2xl font-semibold text-gray-800">Tenants</h1>
+            <h1 class="text-2xl font-semibold text-gray-800">Lease Agreements
+</h1>
             <p class="text-gray-500 text-sm">
-                Manage tenant information and profiles
+Manage lease agreements and renewals
+
             </p>
         </div>
 
@@ -21,13 +24,15 @@
             <li>
                 <a href="" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center gap-2 !no-underline hover:!no-underline">
                   
-                   + Add Tenant
+                   + Add New
                 </a>
             </li>
         </ul>
 
     </div>
-  <div class="flex flex-wrap gap-4 ml-12 mt-10">
+
+
+         <div class="flex flex-wrap gap-4 ml-12 mt-10">
         
     <x-card-tenant title="Total Tenants" total="250" trend="+2 new this month">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,105 +61,76 @@
 </div>
 
 
-
-<div class="ml-12 mr-12 mb-6 mt-10">
-    <div class="relative">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-        </span>
-        
-        <input 
-            type="text" 
-            class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border border-gray-200 rounded-xl focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-100 transition-all shadow-sm" 
-            placeholder="Search tenants by name, email, or property..."
-        >
+<div class=" min-h-screen">
+    <div class="ml-12 mr-12 mb-6 mt-10">
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </span>
+            <input type="text" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring focus:ring-blue-100" placeholder="Search by tenant or property...">
+        </div>
     </div>
 
-</div>
+    @php
+        // Using your specific data names
+        $myLeases = [
+            [
+                'name' => 'Khem muny',
+                'status' => 'Active',
+                'property' => 'Sunset Villa #12',
+                'start' => '2025-04-15',
+                'end' => '2026-04-15',
+                'rent' => '$2,500',
+            ],
+            [
+                'name' => 'Dara Somnang',
+                'status' => 'Expiring Soon',
+                'property' => 'Oak Street Apt 6B',
+                'start' => '2024-01-01',
+                'end' => '2026-12-31',
+                'rent' => '$1,800',
+            ],
+                  [
+                'name' => 'Kong Bunyim',
+                'status' => 'Active',
+                'property' => 'Oak Street Apt 6B',
+                'start' => '2024-01-01',
+                'end' => '2026-12-31',
+                'rent' => '$1,800',
+            ],
+                  [
+                'name' => 'Hai Theara',
+                'status' => 'Active',
+                'property' => 'Oak Street Apt 6B',
+                'start' => '2024-01-01',
+                'end' => '2026-12-31',
+                'rent' => '$1,800',
+            ],
+                  [
+                'name' => 'Yan Kakada',
+                'status' => 'Active',
+                'property' => 'Oak Street Apt 6B',
+                'start' => '2024-01-01',
+                'end' => '2026-12-31',
+                'rent' => '$1,800',
+            ],
+                  [
+                'name' => 'Ken Chai',
+                'status' => 'Renewal Pending',
+                'property' => 'Oak Street Apt 6B',
+                'start' => '2024-01-01',
+                'end' => '2026-12-31',
+                'rent' => '$1,800',
+            ],
 
 
-@php
-    $myTenants = [
-        [
-            'name' => 'Khem muny',
-            'status' => 'Active',
-            'email' => 'munykhem@email.com',
-            'phone' => '(555) 123-4567',
-            'property' => 'Sunset Villa #12',
-            'start' => '2025-04-15',
-            'end' => '2026-04-15',
-            'rent' => '$2,500/mo',
-            'payment_status' => 'Up to Date'
-        ], // <--- Comma here
-      
-        [
-            'name' => 'Dara Somnang',
-            'status' => 'Active',
-            'email' => 'dara.j@email.com',
-            'phone' => '(555) 234-5678',
-            'property' => 'Oak Street Apt 6B',
-            'start' => '2024-01-01',
-            'end' => '2026-12-31',
-            'rent' => '$1,800/mo',
-            'payment_status' => 'Up to Date'
-        ], // <--- Comma here
-
-        [
-            'name' => 'Hai Theara',
-            'status' => 'Active',
-            'email' => 'theara@email.com',
-            'phone' => '(555) 234-5678',
-            'property' => 'Oak Street Apt 5B',
-            'start' => '2024-01-01',
-            'end' => '2026-12-31',
-            'rent' => '$1,800/mo',
-            'payment_status' => 'Up to Date'
-        ], // <--- Comma here
-
-        [
-            'name' => 'Kong Bunyim',
-            'status' => 'Active',
-            'email' => 'Kong Bunyim@email.com',
-            'phone' => '(555) 234-5678',
-            'property' => 'Oak Street Apt 5B',
-            'start' => '2024-01-01',
-            'end' => '2026-12-31',
-            'rent' => '$1,800/mo',
-            'payment_status' => 'Up to Date'
-        ] ,
-          [
-            'name' => 'Yan Kakada',
-            'status' => 'Active',
-            'email' => 'Kakada@email.com',
-            'phone' => '(555) 234-5678',
-            'property' => 'Oak Street Apt 5B',
-            'start' => '2024-01-01',
-            'end' => '2026-12-31',
-            'rent' => '$1,800/mo',
-            'payment_status' => 'Up to Date'
-        ],
-
-          [     'name' => 'Ken Chai',
-            'status' => 'Active',
-            'email' => 'chaiii@email.com',
-            'phone' => '(555) 234-5678',
-            'property' => 'Oak Street Apt 5B',
-            'start' => '2024-01-01',
-            'end' => '2026-12-31',
-            'rent' => '$1,800/mo',
-            'payment_status' => 'Up to Date'
-        ]
-
-        
-    ];
-@endphp
-
-<x-tenant-list :tenants="$myTenants" />
 
 
+            // ... add the rest of your items
+        ];
+    @endphp
+
+    <x-lease-list :leases="$myLeases" />
 
 </div>
-
 @endsection
