@@ -9,7 +9,7 @@ $statusClass = match($status) {
 };
 @endphp
 
-<div class="bg-gray-50 rounded-xl flex items-center p-2.5 justify-between">
+<div class="bg-gray-50 rounded-xl flex items-center p-2 mt-2 justify-between">
     <div>
         <p class="text-sm font-semibold text-gray-900">{{ $name }}</p>
         <p class="text-xs text-gray-400 ">{{ $property }}</p>
