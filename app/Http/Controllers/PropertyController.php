@@ -1,19 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use app\Http\models\Property;
+
+use App\Models\Property; // This now works because the file/class exists!
 use Illuminate\Http\Request;
 
 class PropertyController extends Controller
 {
     public function index()
     {
-        return view('properties');
-    }
-       public function store(Request $request)
-    {
-        $email = $request->input('email');
-        dd($email);
+        $properties = Property::all(); // No more "Undefined" error!
+        return view('admin.properties.index', compact('properties'));
     }
     
+    // ... rest of your code
 }
