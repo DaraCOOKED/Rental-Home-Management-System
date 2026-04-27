@@ -102,7 +102,7 @@
                 <div class="flex items-center justify-center bg-gray-600 rounded-full w-10 h-10 shrink-0">
                     <x-heroicon-o-user class="w-5 h-5 text-white" />
                 </div>
-                <div class="overflow-hidden">
+                <div class="block">
                     <p class="text-sm font-semibold text-gray-800 truncate">{{ auth()->user()->name ?? 'Admin User' }}</p>
                     <p class="text-xs text-gray-400 truncate">{{ auth()->user()->email ?? 'admin@pse.ngo' }}</p>
                 </div>
