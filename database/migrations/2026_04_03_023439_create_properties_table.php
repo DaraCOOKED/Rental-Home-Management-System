@@ -11,13 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('properties', function (Blueprint $table) {
+        Schema::create('property_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('unit_id');
+            $table->string('tenat_id'); // Keeping your spelling: tenat_id
+            $table->string('Email');    // Keeping your capitalization: Email
             $table->string('title');
-            $table->string('price');
-            $table->string('location');
-            $table->string('status');
-            $table->string('description');
+            $table->string('status_request');
+            $table->text('description');
+            
+            // Since your model has public $timestamps = false, 
+            // I am leaving $table->timestamps() out.
         });
     }
 
@@ -26,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('properties');
+        Schema::dropIfExists('property_requests');
     }
 };

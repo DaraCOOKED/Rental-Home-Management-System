@@ -1,6 +1,6 @@
 @props(['leases'])
 
-<div class="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden ml-12 mr-12 mb-10">
+<div class="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden mt-3">
     <table class="w-full text-left border-collapse">
         <thead>
             <tr class="bg-gray-50/50 border-b border-gray-100">

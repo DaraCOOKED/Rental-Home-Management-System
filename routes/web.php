@@ -68,6 +68,9 @@ use App\Http\Controllers\PropertyController;
 
         Route::get('/properties', [PropertyController::class, 'index']);
         Route::post('/properties', [PropertyController::class, 'store'])->name('proerties');
+
+        Route::get('/admin/properties', [PropertyController::class,'index']);
+        
         
         Route::get('/admin/maintenance', [MaintenanceController::class, 'index'])->name('maintenance.index');
 Route::get('/admin/maintenance/create', [MaintenanceController::class, 'create'])->name('maintenance.create');
