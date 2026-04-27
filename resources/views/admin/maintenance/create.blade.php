@@ -1,51 +1,85 @@
 @extends('layouts.app')
-
-@section('title', 'Dashboard')
-
+@section('title', 'New Maintenance Request')
 @section('content')
 
-<div class=" bg-gray-50 p-6 font-sans">
+<div class="bg-gray-50 p-6 font-sans">
 
-    {{-- Header --}}
-    <div class="mb-8">
-        <h1 class="text-3xl font-bold text-gray-900">Dashboard</h1>
-        <p class="text-gray-500 mt-1">Welcome back! Here's what's happening with your properties.</p>
+    <div class="mb-6">
+        <h1 class="text-2xl font-semibold text-gray-800">New Maintenance Request</h1>
+        <p class="text-gray-500 text-sm">Fill in the details below to submit a new request</p>
     </div>
 
-    {{-- Stats Cards --}}
-    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mb-8">
+    <form action="{{ route('maintenance.store') }}" method="POST" class="bg-white rounded-2xl border border-gray-100 p-6">
+        @csrf
 
-        {{-- Total Properties --}}
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-            <div class="flex items-start justify-between mb-4">
-                <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 9.75L12 3l9 6.75V21H3V9.75z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 21V12h6v9"/>
-                    </svg>
-                </div>
+        <div class="grid grid-cols-2 gap-4">
+
+            <div>
+                <label class="text-sm text-gray-600">Title</label>
+                <input type="text" name="title" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" required />
             </div>
-            <p class="text-sm text-gray-500 mb-1">Total Properties</p>
-            <p class="text-3xl font-bold text-gray-900">48</p>
-            <p class="text-sm text-emerald-500 font-medium mt-1">+4 this month</p>
+
+            <div>
+                <label class="text-sm text-gray-600">Email</label>
+                <input type="email" name="Email" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" required />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Unit ID</label>
+                <input type="number" name="unit_id" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" required />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Tenant ID</label>
+                <input type="number" name="tenat_id" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" required />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Status</label>
+                <select name="status_request" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100">
+                    <option value="pending">Pending</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Priority</label>
+                <select name="priority" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Assigned To</label>
+                <input type="text" name="assigned_to" placeholder="e.g. Mike's Plumbing" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Submitted Date</label>
+                <input type="date" name="submitted_date" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Est. Completion</label>
+                <input type="date" name="est_completion" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" />
+            </div>
+
+            <div>
+                <label class="text-sm text-gray-600">Description</label>
+                <textarea name="description" rows="3" class="w-full mt-1 px-4 py-2 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-100" required></textarea>
+            </div>
+
         </div>
 
-        {{-- Active Tenants --}}
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
-            <div class="flex items-start justify-between mb-4">
-                <div class="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-5-3.87M9 20H4v-2a4 4 0 015-3.87m6-4.13a4 4 0 11-8 0 4 4 0 018 0zm6 0a3 3 0 11-6 0 3 3 0 016 0z"/>
-                    </svg>
-                </div>
-            </div>
-            <p class="text-sm text-gray-500 mb-1">Active Tenants</p>
-            <p class="text-3xl font-bold text-gray-900">142</p>
-            <p class="text-sm text-emerald-500 font-medium mt-1">+12 this month</p>
+        <div class="flex gap-3 mt-6">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-xl text-sm hover:bg-blue-700">Submit</button>
+            <a href="{{ route('maintenance.index') }}" class="px-6 py-2 rounded-xl border border-gray-200 text-sm text-gray-600 hover:bg-gray-50">Cancel</a>
         </div>
 
- 
-
+    </form>
 </div>
 
 @endsection

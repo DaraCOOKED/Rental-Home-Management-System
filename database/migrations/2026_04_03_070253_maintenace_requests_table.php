@@ -12,8 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('maintence_requests', function (Blueprint $table)
-    {
+       Schema::create('maintence_requests', function (Blueprint $table) {
             $table->id();
             $table->integer('unit_id');
             $table->integer('tenat_id');
@@ -21,8 +20,11 @@ return new class extends Migration
             $table->string('title');
             $table->string('status_request');
             $table->string('description');
-
-    });
+            $table->string('priority')->default('medium');
+            $table->string('assigned_to')->nullable();
+            $table->date('est_completion')->nullable();
+            $table->date('submitted_date')->nullable();
+});
 
     }
 

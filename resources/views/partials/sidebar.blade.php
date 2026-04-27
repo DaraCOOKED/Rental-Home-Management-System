@@ -4,10 +4,39 @@
         {{-- Logo --}}
         <div class="flex items-center gap-3 mb-3">
     <div class="flex items-center justify-center bg-blue-600 w-12 h-12 mb-3 rounded-xl shrink-0">
-        <x-heroicon-o-building-office-2 class="w-7 h-7 text-white" />
+         <style>
+        .bg-box { animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; opacity: 0; }
+        .house   { animation: dropDown 0.5s ease forwards 0.4s; opacity: 0; }
+        .key     { animation: slideIn 0.5s ease forwards 0.7s; opacity: 0; }
+        .key-hole{ animation: fadeIn 0.3s ease forwards 1s; opacity: 0; }
+
+        @keyframes popIn    { 0% { opacity:0; transform:scale(0.5); } 100% { opacity:1; transform:scale(1); } }
+        @keyframes dropDown { 0% { opacity:0; transform:translateY(-20px); } 100% { opacity:1; transform:translateY(0); } }
+        @keyframes slideIn  { 0% { opacity:0; transform:translateX(-20px); } 100% { opacity:1; transform:translateX(0); } }
+        @keyframes fadeIn   { 0% { opacity:0; } 100% { opacity:1; } }
+    </style>
+
+    <svg width="48" height="48" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+        <rect class="bg-box" x="0" y="0" width="300" height="300" rx="52" fill="#2563EB"/>
+        <g class="house">
+            <polygon points="150,55 78,113 222,113" fill="white"/>
+            <rect x="90" y="113" width="46" height="50" rx="4" fill="white"/>
+            <rect x="164" y="113" width="46" height="50" rx="4" fill="white"/>
+            <rect x="124" y="113" width="30" height="30" rx="3" fill="#2563EB"/>
+        </g>
+        <g class="key">
+            <circle cx="126" cy="215" r="22" fill="none" stroke="white" stroke-width="9"/>
+            <rect x="144" y="209" width="58" height="10" rx="5" fill="white"/>
+            <rect x="188" y="219" width="10" height="18" rx="4" fill="white"/>
+            <rect x="168" y="219" width="10" height="14" rx="4" fill="white"/>
+        </g>
+        <g class="key-hole">
+            <circle cx="126" cy="215" r="8" fill="#2563EB"/>
+        </g>
+    </svg>
     </div>
     <div>
-        <h4 class="text-xl font-bold text-gray-900 leading-tight">PropManager</h4>
+        <h4 class="text-xl font-bold text-gray-900 leading-tight">Manager</h4>
         <p class="text-sm text-gray-400">Rental Management</p>
     </div>
 </div>
@@ -55,7 +84,7 @@
             </a>
 
 
-            <a href="/admin/maintenance/create"
+            <a href="/admin/maintenance"
             class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition !no-underline hover:!no-underline 
             {{ request()->is('admin/maintenance*') ?
             'bg-blue-100 text-blue-600' : '!text-gray-900 hover:bg-blue-50 hover:!text-blue-600' }}">
