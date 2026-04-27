@@ -28,12 +28,12 @@
     <x-summary-card label="Pending"         value="$6,700"  valueColor="text-yellow-500" />
     <x-summary-card label="Overdue"         value="$2,100"  valueColor="text-red-500" />
     <x-summary-card label="Total Payments"  value="8"       valueColor="text-gray-900" />
-</div>
+  </div>
 
 {{-- Filters --}}
 <div class="bg-white rounded-2xl border border-gray-100 p-6 mb-4">
     <div class="flex items-center gap-2 mb-4">
-        <x-heroicon-o-funnel class="w-4 h-4 text-gray-500" />
+        <x-heroicon-o-funnel class="w-10 h-8 mb-2 text-gray-500" />
         <h3 class="text-sm font-semibold text-gray-700">Filters</h3>
     </div>
     <div class="flex gap-3">
