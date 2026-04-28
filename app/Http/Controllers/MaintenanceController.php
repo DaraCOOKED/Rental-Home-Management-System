@@ -17,19 +17,23 @@ class MaintenanceController extends Controller
         return view('admin.maintenance.create');
     }
 
-    public function store(Request $request)
+        public function approve($id)
     {
-        $request->validate([
-            'unit_id'        => 'required',
-            'tenat_id'       => 'required',
-            'Email'          => 'required|email',
-            'title'          => 'required|string',
-            'status_request' => 'required|string',
-            'description'    => 'required|string',
-        ]);
-
-        Maintenance::create($request->all());
-
-        return redirect()->route('maintenance.index')->with('success', 'Request created!');
+        Maintenance::findOrFail($id)->update(['status_request' => 'in_progress']);
+        return back()->with('success', 'Request approved!');
     }
+
+    public function reject($id)
+    {
+        Maintenance::findOrFail($id)->update(['status_request' => 'rejected']);
+        return back()->with('success', 'Request rejected!');
+    }
+
+    public function complete($id)
+    {
+        Maintenance::findOrFail($id)->update(['status_request' => 'completed']);
+        return back()->with('success', 'Request completed!');
+    }
+
+    
 }

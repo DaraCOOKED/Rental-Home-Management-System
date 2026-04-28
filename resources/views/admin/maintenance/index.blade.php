@@ -11,9 +11,6 @@
             <h1 class="text-2xl font-semibold text-gray-800">Maintenance Requests</h1>
             <p class="text-gray-500 text-sm">Track and manage property maintenance issues</p>
         </div>
-        <a href="{{ route('maintenance.create') }}" class="bg-blue-600 text-white !no-underline px-4 py-2 rounded-lg hover:bg-blue-700 flex items-center gap-2">
-            + New Request
-        </a>
     </div>
 
     {{-- Stats --}}
@@ -51,6 +48,8 @@
         :assignedTo="$request->assigned_to"
         :estCompletion="$request->est_completion"
         :submittedDate="$request->submitted_date"
+        :requestId="$request->id"
+        :isAdmin="true"
     />
 @empty
     <p class="text-gray-500 text-sm text-center py-6">No maintenance requests found.</p>
