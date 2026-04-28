@@ -5,7 +5,7 @@ use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\TenantMaintenanceController;
-
+use App\Http\Controllers\TenantController;
 
         Route::get('/', function () {
             return redirect()->route('login');});
@@ -94,3 +94,9 @@ use App\Http\Controllers\TenantMaintenanceController;
         Route::patch('/admin/maintenance/{id}/approve',  [MaintenanceController::class, 'approve'])->name('maintenance.approve');
         Route::patch('/admin/maintenance/{id}/reject',   [MaintenanceController::class, 'reject'])->name('maintenance.reject');
         Route::patch('/admin/maintenance/{id}/complete', [MaintenanceController::class, 'complete'])->name('maintenance.complete');
+
+
+
+        Route::get('/admin/tenants', [TenantController::class, 'index'])->name('admin.tenants.index');
+        Route::get('/admin/tenants/create', [TenantController::class, 'create'])->name('admin.tenants.create');
+        Route::post('/admin/tenants', [TenantController::class, 'store'])->name('admin.tenants.store');
