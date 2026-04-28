@@ -49,8 +49,9 @@
             class="appearance-none w-full py-3 px-5 pr-10 text-gray-700 bg-white border-1 xx rounded-xl font-medium focus:outline-none cursor-pointer"
         >
             <option>All Status</option>
-            <option>Active</option>
-            <option>Pending</option>
+            <option>Occupied</option>
+            <option>Maintenance </option>
+            <option>Available</option>
         </select>
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-700">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
