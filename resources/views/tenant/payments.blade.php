@@ -16,7 +16,7 @@
         {{-- Total Paid --}}
         <div class="bg-white rounded-2xl border border-gray-100 p-5 shadow-sm">
             <p class="text-gray-500 text-sm mb-3">Total Paid</p>
-            <p class="text-3xl font-semibold text-green-500">¥9,000</p>
+            <p class="text-3xl font-semibold text-green-500">$9,000</p>
         </div>
 
         {{-- Pending Payments --}}
@@ -66,7 +66,7 @@
                     {{-- Row 1 --}}
                     <tr class="hover:bg-gray-50 transition-colors">
                         <td class="py-4 pr-4 text-sm text-gray-800">Pearl River Plaza - A-501</td>
-                        <td class="py-4 pr-4 text-sm text-gray-800">¥4,500</td>
+                        <td class="py-4 pr-4 text-sm text-gray-800">$4,500</td>
                         <td class="py-4 pr-4 text-sm text-gray-800">2024-03-01</td>
                         <td class="py-4 pr-4 text-sm text-gray-800">2024-03-05</td>
                         <td class="py-4 pr-4 text-sm text-gray-800">Alipay</td>
@@ -88,7 +88,7 @@
                     {{-- Row 2 --}}
                     <tr class="hover:bg-gray-50 transition-colors">
                         <td class="py-4 pr-4 text-sm text-gray-800">Pearl River Plaza - A-501</td>
-                        <td class="py-4 pr-4 text-sm text-gray-800">¥4,500</td>
+                        <td class="py-4 pr-4 text-sm text-gray-800">$4,500</td>
                         <td class="py-4 pr-4 text-sm text-gray-800">2024-04-01</td>
                         <td class="py-4 pr-4 text-sm text-gray-800">2024-04-02</td>
                         <td class="py-4 pr-4 text-sm text-gray-800">Alipay</td>
@@ -110,7 +110,7 @@
                     {{-- Row 3 - Pending --}}
                     <tr class="hover:bg-gray-50 transition-colors">
                         <td class="py-4 pr-4 text-sm text-gray-800">Pearl River Plaza - A-501</td>
-                        <td class="py-4 pr-4 text-sm text-gray-800">¥4,500</td>
+                        <td class="py-4 pr-4 text-sm text-gray-800">$4,500</td>
                         <td class="py-4 pr-4 text-sm text-gray-800">2024-05-01</td>
                         <td class="py-4 pr-4 text-sm text-gray-400">-</td>
                         <td class="py-4 pr-4 text-sm text-gray-800">Alipay</td>
