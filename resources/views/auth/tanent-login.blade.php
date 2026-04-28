@@ -38,8 +38,7 @@
                 </div>
             </div>
         </div>
-
-<form method="POST" action="{{ url('/login') }}">
+<form method="POST" action="{{ url('/tenant/login') }}">
     @csrf
         @if ($errors->any())
             <div class="px-3.5">

@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\RentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\TenantMaintenanceController;
 
 
         Route::get('/', function () {
@@ -73,5 +74,23 @@ use App\Http\Controllers\PropertyController;
         
         
         Route::get('/admin/maintenance', [MaintenanceController::class, 'index'])->name('maintenance.index');
-Route::get('/admin/maintenance/create', [MaintenanceController::class, 'create'])->name('maintenance.create');
-Route::post('/admin/maintenance', [MaintenanceController::class, 'store'])->name('maintenance.store');
+        Route::get('/admin/maintenance/create', [MaintenanceController::class, 'create'])->name('maintenance.create');
+        Route::post('/admin/maintenance', [MaintenanceController::class, 'store'])->name('maintenance.store');
+
+
+
+
+
+
+        Route::get('/tenant/maintenance', [TenantMaintenanceController::class, 'index'])->name('tenant.maintenance.index');
+        Route::get('/tenant/maintenance/create', [TenantMaintenanceController::class, 'create'])->name('tenant.maintenance.create');
+        Route::post('/tenant/maintenance', [TenantMaintenanceController::class, 'store'])->name('tenant.maintenance.store');
+
+
+
+        Route::post('/tenant/login', [AuthController::class, 'tenantLogin']);
+
+
+        Route::patch('/admin/maintenance/{id}/approve',  [MaintenanceController::class, 'approve'])->name('maintenance.approve');
+        Route::patch('/admin/maintenance/{id}/reject',   [MaintenanceController::class, 'reject'])->name('maintenance.reject');
+        Route::patch('/admin/maintenance/{id}/complete', [MaintenanceController::class, 'complete'])->name('maintenance.complete');

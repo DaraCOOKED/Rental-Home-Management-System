@@ -1,10 +1,11 @@
-@props(['title', 'tenant', 'description', 'status', 'email', 'priority' => 'medium', 'assignedTo' => null, 'estCompletion' => null, 'submittedDate' => null])
+@props(['title', 'tenant', 'description', 'status', 'email', 'priority' => 'medium', 'assignedTo' => null, 'estCompletion' => null, 'submittedDate' => null, 'requestId' => null, 'isAdmin' => false])
 
 @php
     $statusConfig = match(strtolower($status)) {
         'in_progress' => ['label' => 'In Progress', 'class' => 'bg-blue-100 text-blue-600'],
         'pending'     => ['label' => 'Pending',      'class' => 'bg-yellow-100 text-yellow-600'],
         'completed'   => ['label' => 'Completed',    'class' => 'bg-green-100 text-green-600'],
+        'rejected'    => ['label' => 'Rejected',     'class' => 'bg-red-100 text-red-600'],
         default       => ['label' => ucfirst($status), 'class' => 'bg-gray-100 text-gray-600'],
     };
 
@@ -12,28 +13,23 @@
         'high'   => ['label' => 'High Priority',   'class' => 'bg-red-100 text-red-600'],
         'medium' => ['label' => 'Medium Priority', 'class' => 'bg-yellow-100 text-yellow-700'],
         'low'    => ['label' => 'Low Priority',    'class' => 'bg-green-100 text-green-600'],
-        default  => ['label' => ucfirst($priority) . ' Priority', 'class' => 'bg-gray-100 text-gray-600'],
+        default  => ['label' => 'Medium Priority', 'class' => 'bg-yellow-100 text-yellow-700'],
     };
 @endphp
 
 <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
     <div class="px-5 py-4 flex items-start gap-4">
-
-        {{-- Icon --}}
         <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center bg-blue-50">
             <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
             </svg>
         </div>
-
         <div class="flex-1 min-w-0">
             <div class="flex items-start justify-between gap-3">
                 <div>
                     <h3 class="text-base font-semibold text-gray-900">{{ $title }}</h3>
                     <p class="text-sm text-gray-500 mt-0.5">
-                        {{ $tenant }}
-                        <span class="mx-1 text-gray-300">•</span>
-                        {{ $email }}
+                        {{ $tenant }} <span class="mx-1 text-gray-300">•</span> {{ $email }}
                     </p>
                     <p class="text-sm text-gray-600 mt-1">{{ $description }}</p>
                 </div>
@@ -61,9 +57,31 @@
 
     <div class="border-t border-gray-100"></div>
 
-    <div class="px-5 py-3 flex items-center gap-5">
-        @if(strtolower($status) !== 'completed')
-            <a href="#" class="text-sm font-medium text-green-600 hover:text-green-700">Mark as Completed</a>
+    <div class="px-5 py-3 flex items-center gap-4">
+        @if($isAdmin && $requestId)
+            {{-- Admin Actions --}}
+            @if(strtolower($status) === 'pending')
+                <form method="POST" action="{{ route('maintenance.approve', $requestId) }}">
+                    @csrf @method('PATCH')
+                    <button type="submit" class="text-sm font-medium text-blue-600 hover:text-blue-700">
+                        ✓ Approve
+                    </button>
+                </form>
+                <form method="POST" action="{{ route('maintenance.reject', $requestId) }}">
+                    @csrf @method('PATCH')
+                    <button type="submit" class="text-sm font-medium text-red-500 hover:text-red-600">
+                        ✗ Reject
+                    </button>
+                </form>
+            @endif
+            @if(strtolower($status) === 'in_progress')
+                <form method="POST" action="{{ route('maintenance.complete', $requestId) }}">
+                    @csrf @method('PATCH')
+                    <button type="submit" class="text-sm font-medium text-green-600 hover:text-green-700">
+                        ✓ Mark as Completed
+                    </button>
+                </form>
+            @endif
         @endif
         <a href="#" class="text-sm text-gray-700 hover:text-gray-900">View Details</a>
     </div>
